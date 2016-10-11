@@ -1,4 +1,4 @@
-# changelog_parser
+# changelog_updater
 
 Automatically updates your changelog by increasing the major, minor or patch version based on the newest release.
 
