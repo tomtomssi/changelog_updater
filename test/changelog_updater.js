@@ -6,7 +6,6 @@ var fs = require('fs');
 
 describe('#updater', function () {
   var changelogPath = './test/TESTLOG.md';
-  var tmpChangelogPath = './test/tmp.md';
 
   it('changelog is defined after bumping the patch version', function () {
     var changelog = updater.bumpPatch(changelogPath);
@@ -67,17 +66,4 @@ describe('#updater', function () {
     
     expect(new_json_changelog.versions[1].version_number).to.equal('1.0.0');
   });
-
-  function testVersionNumberUpdated(changelogString, versionNumber) {
-    fs.writeFile("./test/tmp.md", changelogString, function (err) {
-
-      if (err) {
-        return console.log(err);
-      } else {
-        new_json_changelog = parser.toJSON(tmpChangelogPath);
-
-        expect(new_json_changelog.versions[1].version_number).to.equal(versionNumber);
-      }
-    });
-  }
 });
