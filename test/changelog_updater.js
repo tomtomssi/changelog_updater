@@ -34,33 +34,38 @@ describe('#updater', function () {
     expect(json_changelog.versions[0].version_number).to.equal('x.y.z');
     expect(json_changelog.versions[1].version_number).to.equal('0.1.0');
 
-    new_changelog = updater.bumpMinor(changelogPath);
+    new_changelog = updater.bumpPatch(changelogPath);
+    new_json_changelog = parser.toJSONFromString(new_changelog);
 
-    testVersionNumberUpdated(new_changelog, '0.1.1');
+    expect(new_json_changelog.versions[1].version_number).to.equal('0.1.1');    
   });
 
   it('when bumping the minor version it should be reflected in the changelog', function () {
     var json_changelog = parser.toJSON(changelogPath);
     var new_changelog;
+    var new_json_changelog;
 
     new_changelog = updater.bumpMinor(changelogPath);
+    new_json_changelog = parser.toJSONFromString(new_changelog);
 
     expect(json_changelog.versions[0].version_number).to.equal('x.y.z');
     expect(json_changelog.versions[1].version_number).to.equal('0.1.0');
 
-    testVersionNumberUpdated(new_changelog, '0.2.0');
+    expect(new_json_changelog.versions[1].version_number).to.equal('0.2.0');    
   });
 
   it('when bumping the major version it should be reflected in the changelog', function () {
     var json_changelog = parser.toJSON(changelogPath);
     var new_changelog;
+    var new_json_changelog;
 
-    new_changelog = updater.bumpMinor(changelogPath);
+    new_changelog = updater.bumpMajor(changelogPath);
+    new_json_changelog = parser.toJSONFromString(new_changelog);
 
     expect(json_changelog.versions[0].version_number).to.equal('x.y.z');
     expect(json_changelog.versions[1].version_number).to.equal('0.1.0');
     
-    testVersionNumberUpdated(new_changelog, '1.0.0');    
+    expect(new_json_changelog.versions[1].version_number).to.equal('1.0.0');
   });
 
   function testVersionNumberUpdated(changelogString, versionNumber) {
