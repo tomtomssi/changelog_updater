@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/tomtomssi/changelog_updater#readme",
   "dependencies": {
-    "changelog_parser": "^0.1.0"
+    "changelog_parser": "1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
