@@ -1,5 +1,15 @@
 # Changelog
 
+## [x.y.z]
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
 ## [0.1.0](https://github.com/tomtomssi/changelog_parser/tree/v0.1.0)
 
 ### Removed
