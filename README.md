@@ -11,10 +11,31 @@ npm install changelog_updater
 ```
 
 ## Usage
+```js
+// update the patch version e.g. 0.0.1 to 0.0.2
+var changelog = updater.bumpPatch(changelogPath);
 
+// update the minor version e.g. 0.1.1 to 0.2.0
+var changelog = updater.bumpMinor(changelogPath);
+
+// update the major version e.g. 1.1.1 to 2.0.0
+var changelog = updater.bumpMajor(changelogPath);
+```
 ## Format
 
-This module requires the changelog to be in markdown format.
+This module requires the changelog to be in markdown format. The changelog that is being updated should always have a [x.y.z] version that is the **first** version after the title.
+
+```md
+## [x.y.z]
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+```
 
 The title of the changelog is prefixed by **one** hashtag (#):
 ```md
@@ -70,7 +91,9 @@ An example CHANGELOG.md file:
 ```
 
 ## Testing
-
+```js
+npm test
+```
 ## License
 
 [MIT](LICENSE.md)
