@@ -1,6 +1,6 @@
 {
   "name": "changelog_updater",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Automatically update your changelog",
   "main": "changelog_updater.js",
   "repository": {
